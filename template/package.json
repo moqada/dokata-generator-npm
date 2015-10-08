@@ -2,7 +2,7 @@
   "name": "<%= packageName %>",
   "description": "<%= packageDescription %>",
   "version": "0.0.0",
-  "author": "<%= packageAuthor %>",
+  "author": "<%- packageAuthor %>",
   "bugs": {
     "url": "https://github.com/<%= githubUser %>/<%= packageName %>/issues"
   },
