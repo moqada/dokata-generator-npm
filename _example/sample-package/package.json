@@ -1,11 +1,12 @@
 {
   "name": "sample-package",
-  "version": "0.0.0",
   "description": "Awesome Sample Package",
-  "author": "moqada &lt;moqada@gmail.com&gt;",
+  "version": "0.0.0",
+  "author": "moqada <moqada@gmail.com>",
   "bugs": {
     "url": "https://github.com/moqada/sample-package/issues"
   },
+  "dependencies": {},
   "devDependencies": {
     "babel": "",
     "babel-plugin-espower": "",
@@ -19,7 +20,6 @@
     "npm-run-all": "",
     "power-assert": ""
   },
-  "dependencies": {},
   "files": [
     "lib"
   ],
@@ -32,20 +32,20 @@
     "url": "https://github.com/moqada/sample-package.git"
   },
   "scripts": {
-    "test": "npm-run-all lint test:coverage",
     "build": "babel src --out-dir lib",
-    "watch": "npm-run-all watch:*",
-    "doc": "esdoc -c esdoc.json",
-    "deploy": "npm-run-all doc gh-pages",
-    "lint": "eslint {src,test}",
     "codecov": "cat coverage/lcov.info | codecov",
+    "deploy": "npm-run-all doc gh-pages",
+    "doc": "esdoc -c esdoc.json",
     "gh-pages": "gh-pages -d doc",
+    "lint": "eslint {src,test}",
+    "postpublish": "npm run deploy",
     "prebuild": "rm -rf lib",
     "predoc": "rm -rf doc",
     "prepublish": "git diff --exit-code && npm run --if-present build",
     "pretest": "rm -rf coverage",
-    "postpublish": "npm run deploy",
+    "test": "npm-run-all lint test:coverage",
     "test:coverage": "babel-node $(npm bin)/isparta cover --report text --report html --report lcovonly _mocha -- test/{**/,}*spec.js",
+    "watch": "npm-run-all watch:*",
     "watch:src": "babel --out-dir=lib --watch src",
     "watch:test": "mocha --watch test/{**/,}*spec.js"
   }
