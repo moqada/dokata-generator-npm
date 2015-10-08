@@ -1,6 +1,6 @@
 # dokata-generator-npm
 
-Boilerplate for npm module.
+My Personal Boilerplate for npm module.
 
 
 ## Installation
