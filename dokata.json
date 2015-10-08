@@ -1,0 +1,26 @@
+{
+  "questions": [{
+    "type": "input",
+    "name": "packageName",
+    "message": "name:"
+  }, {
+    "type": "input",
+    "name": "packageDescription",
+    "message": "description:"
+  }, {
+    "type": "input",
+    "name": "packageAuthor",
+    "message": "author:",
+    "default": "moqada <moqada@gmail.com>"
+  }, {
+    "type": "input",
+    "name": "packageLicense",
+    "message": "license:",
+    "default": "MIT"
+  }, {
+    "type": "input",
+    "name": "githubUser",
+    "message": "GitHub username:",
+    "default": "moqada"
+  }]
+}
