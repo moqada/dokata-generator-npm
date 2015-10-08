@@ -1,0 +1,52 @@
+{
+  "name": "sample-package",
+  "version": "0.0.0",
+  "description": "Awesome Sample Package",
+  "author": "moqada &lt;moqada@gmail.com&gt;",
+  "bugs": {
+    "url": "https://github.com/moqada/sample-package/issues"
+  },
+  "devDependencies": {
+    "babel": "",
+    "babel-plugin-espower": "",
+    "codecov.io": "",
+    "esdoc": "",
+    "eslint": "",
+    "eslint-config-moqada": "",
+    "gh-pages": "",
+    "isparta": "",
+    "mocha": "",
+    "npm-run-all": "",
+    "power-assert": ""
+  },
+  "dependencies": {},
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/moqada/sample-package#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moqada/sample-package.git"
+  },
+  "scripts": {
+    "test": "npm-run-all lint test:coverage",
+    "build": "babel src --out-dir lib",
+    "watch": "npm-run-all watch:*",
+    "doc": "esdoc -c esdoc.json",
+    "deploy": "npm-run-all doc gh-pages",
+    "lint": "eslint {src,test}",
+    "codecov": "cat coverage/lcov.info | codecov",
+    "gh-pages": "gh-pages -d doc",
+    "prebuild": "rm -rf lib",
+    "predoc": "rm -rf doc",
+    "prepublish": "git diff --exit-code && npm run --if-present build",
+    "pretest": "rm -rf coverage",
+    "postpublish": "npm run deploy",
+    "test:coverage": "babel-node $(npm bin)/isparta cover --report text --report html --report lcovonly _mocha -- test/{**/,}*spec.js",
+    "watch:src": "babel --out-dir=lib --watch src",
+    "watch:test": "mocha --watch test/{**/,}*spec.js"
+  }
+}
